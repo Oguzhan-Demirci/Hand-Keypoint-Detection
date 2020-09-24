@@ -87,7 +87,7 @@ class Hand {
 
     /**
      *  A finger is considered up if the difference between, degree calculated between
-     *  wrist and first point of the finger and degree between first and last points of the finger
+     *  first and last points of the finger and degree between first and second points of the finger
      *  is in accepted range.
      */
     private fun isFingerUp(points: ArrayList<MLHandKeypoint>, wrist: MLHandKeypoint): Boolean {
