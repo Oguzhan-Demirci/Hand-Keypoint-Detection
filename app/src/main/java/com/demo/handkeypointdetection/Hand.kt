@@ -7,7 +7,7 @@ import kotlin.math.atan2
 class Hand {
 
     companion object {
-        private const val ACCEPTED_RANGE_IN_DEGREE = 50
+        private const val ACCEPTED_RANGE_IN_DEGREE = 30
     }
 
     var firstFinger = arrayListOf<MLHandKeypoint>()
@@ -94,11 +94,10 @@ class Hand {
 
         if (points.size == 4) {
 
-            val degreeWrist2First = getDegree(points.first(), points.last())
-            val degreeFirst2Last = getDegree(wrist, points.first())
+            val degreeFirst2Last = getDegree(points.first(), points.last())
+            val degreeFirst2Second = getDegree(points.first(), points[1])
 
-
-            if (abs(degreeFirst2Last - degreeWrist2First) < ACCEPTED_RANGE_IN_DEGREE)
+            if (abs(degreeFirst2Last - degreeFirst2Second) < ACCEPTED_RANGE_IN_DEGREE)
                 return true
         }
 
